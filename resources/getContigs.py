@@ -16,12 +16,12 @@ def main():
             lumpy_exclude_file.write("%s\t%d\t%d\n" % (sequence_name, 1, length) )
             continue
 
-        if filter_contigs and length < 1000000:
+        if filter_contigs and length < 5000:
             lumpy_exclude_file.write("%s\t%d\t%d\n" % (sequence_name, 1, length) )
             delly_exclude_file.write("%s\n" % sequence_name)
             continue
 
-        if filter_contigs and (length < 1000000 or sequence_name == "hs37d5" or "alt" in sequence_name or "_random" in sequence_name or "_decoy" in sequence_name):
+        if filter_contigs and (length < 5000 or sequence_name == "hs37d5" or "alt" in sequence_name or "_random" in sequence_name or "_decoy" in sequence_name):
             continue
         else:
             print sequence_name
